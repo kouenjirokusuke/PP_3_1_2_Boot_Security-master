@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>User</title>
+</head>
+<body>
+<h2>User</h2>
+<br>
+<p>Name: <span th:text="${user.getName()}">name</span></p>
+<p>Email: <span th:text="${user.getEmail()}">email</span></p>
+<p>Role: <span th:text="${user.getRolesAsString()}">roles</span></p>
+<br>
+<input type="button" value="Log out" onclick="window.location.href ='logout'"/>
+</body>
+</html>

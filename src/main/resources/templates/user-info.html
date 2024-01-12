@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>User info</title>
+</head>
+<body>
+<h2>User info</h2>
+<br>
+<form action="save">
+    <input type="hidden" name="id" th:value="${user.getId()}">
+    <input type="hidden" name="roles" th:value="${user.getRoles()}">
+
+    Name <input type="text" name="name" th:value="${user.getName()}"/><br><br>
+    Email <input type="text" name="email" th:value="${user.getEmail()}"/><br><br>
+    Password <input type="text" name="password" th:value="${user.getPassword()}"/><br><br>
+
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
