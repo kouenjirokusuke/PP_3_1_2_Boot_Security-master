@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface RoleDAO {
     Role getRoleByName(String name);
+    void addNewRole(String name);
 }

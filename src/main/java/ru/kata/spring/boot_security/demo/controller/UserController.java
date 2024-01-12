@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.kata.spring.boot_security.demo.entity.Roles;
 import ru.kata.spring.boot_security.demo.entity.User;
+import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.security.Principal;
@@ -16,6 +18,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RoleService roleService;
 
     @RequestMapping("/user")
     public String user(Model model, Principal principal) {
@@ -33,7 +38,10 @@ public class UserController {
 
     @RequestMapping("/add")
     public String addNewUser(Model model) {
-        model.addAttribute("user", new User());
+        User user = new User();
+        user.addRole(roleService.getRoleByName(Roles.USER.name()));
+
+        model.addAttribute("user", user);
 
         return "user-info";
     }

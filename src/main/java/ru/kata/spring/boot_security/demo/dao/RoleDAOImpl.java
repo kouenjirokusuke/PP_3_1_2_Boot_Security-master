@@ -18,4 +18,11 @@ public class RoleDAOImpl implements RoleDAO {
     public Role getRoleByName(String name) {
         return entityManager.createQuery("from Role where name=:name", Role.class).setParameter("name", name).getSingleResult();
     }
+
+    @Override
+    public void addNewRole(String name) {
+        entityManager.merge(new Role(name));
+    }
+
+
 }

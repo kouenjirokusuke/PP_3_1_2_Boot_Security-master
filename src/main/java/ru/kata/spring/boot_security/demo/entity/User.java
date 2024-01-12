@@ -37,6 +37,13 @@ public class User implements UserDetails {
         this.password = password;
     }
 
+    public User(String name, String email, String password, List<Role> roles) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
     public long getId() {
         return id;
     }
@@ -87,7 +94,7 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public void setRole(Role role) {
+    public void addRole(Role role) {
         this.roles.add(role);
     }
 
